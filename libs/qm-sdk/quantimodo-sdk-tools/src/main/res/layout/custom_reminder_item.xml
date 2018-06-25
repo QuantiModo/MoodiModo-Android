@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_complete"
+    >
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/selector"
+        >
+
+        <TextView
+            android:id="@+id/custom_reminder_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingStart="16dp"
+            android:textSize="16sp"
+            android:text="1 count Banana (3:00PM)"/>
+        <TextView
+            android:id="@+id/custom_reminder_freq_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/custom_reminder_title_text"
+            android:paddingLeft="16dp"
+            android:paddingStart="16dp"
+            android:textSize="14sp"
+            android:text="Every hour"
+            />
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="bottom"
+              android:background="@android:color/transparent"
+              android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/notification_main_layout"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/bg_moodpopup">
+
+        <LinearLayout
+            android:id="@+id/custom_reminder_title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/selector_card_bottom">
+
+            <TextView
+                android:id="@+id/custom_reminder_dialog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@android:color/holo_blue_light"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_card_middle">
+            <Button
+                android:id="@+id/notification_dialog_snooze"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:background="@drawable/selector"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:text="@string/reminders_notif_button_snooze"/>
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/card_shadow" />
+            <Button
+                android:id="@+id/notification_dialog_edit"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:background="@drawable/selector"
+                android:gravity="center"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:text="@string/reminders_notif_button_edit"/>
+            <TextView
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/card_shadow" />
+            <Button
+                android:id="@+id/notification_dialog_track"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:layout_weight="1"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:scaleType="fitCenter"
+                android:background="@drawable/selector"
+                android:gravity="center"
+                android:text="@string/reminders_notif_button_track"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

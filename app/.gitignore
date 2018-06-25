@@ -1,0 +1,10 @@
+/build
+
+# Report generated when building the release built flavor
+manifest-merger-release-report.txt
+
+# Private files
+quantimodo.properties
+mindfirst.properties
+testing.properties
+energy.properties

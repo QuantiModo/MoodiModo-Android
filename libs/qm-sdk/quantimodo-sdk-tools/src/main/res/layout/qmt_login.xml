@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center"
+    >
+
+    <Button
+        android:id="@+id/qmt_signin_google"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:minWidth="200dp"
+        android:gravity="center"
+        android:background="@color/common_signin_btn_default_background"
+        android:drawableLeft="@drawable/common_signin_btn_icon_normal_dark"
+        android:drawableStart="@drawable/common_signin_btn_icon_light"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:text="@string/signin_google_button"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+
+    <Button
+        android:id="@+id/qmt_signin_facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_margin="0dp"
+        android:padding="10dp"
+        android:minWidth="200dp"
+        android:layout_gravity="center_horizontal"
+        style="@style/com_facebook_button"
+        android:drawableLeft="@drawable/com_facebook_button_icon"
+        android:drawableStart="@drawable/com_facebook_button_icon"
+        android:drawablePadding="10dp"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:text="@string/signin_facebook_button"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+
+    <Button
+        android:id="@+id/qmt_signin_moodimodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:maxWidth="200dp"
+        android:padding="10dp"
+        android:minWidth="200dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/button_color"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:text="@string/signin_button"/>
+</LinearLayout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.moodimodo">
+
+    <permission
+        android:name="com.moodimodo.SET_MOOD"
+        android:label="Rate your mood in MoodiModo"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.moodimodo.SET_MOOD" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+
+    <application
+        android:name=".MoodiModoApp"
+        android:allowBackup="true"
+        android:backupAgent=".MoodiModoBackupAgent"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/Default">
+
+        <meta-data android:name="com.google.android.backup.api_key" android:value="AEdPqrEAAAAIyd9WlI40AyNNhKvD-XGgri6W70L7DwG1c40GJQ" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/login_facebook_app_id"/>
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@style/Default.WhiteBg"
+            android:name=".activities.SettingsActivity"
+            android:label="@string/title_preferences"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+
+
+
+        <activity
+            android:theme="@style/Default.WhiteBg"
+            android:name=".activities.HistoryActivity"
+            android:label="@string/title_history"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name" />
+
+        <activity
+            android:theme="@style/Default.WhiteBg"
+            android:name=".activities.RemindersActivity"
+            android:label="@string/reminders_title"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+
+        <!-- Custom Reminders -->
+        <activity
+            android:name="com.quantimodo.tools.activities.CustomRemindersActivity"
+            android:label="@string/reminders_title"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.quantimodo.tools.activities.CustomRemindersCreateActivity"
+            android:label="@string/reminders_title"
+            android:parentActivityName="com.quantimodo.tools.activities.CustomRemindersActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.quantimodo.tools.activities.CustomRemindersActivity" />
+        </activity>
+        <activity
+            android:name="com.quantimodo.tools.activities.CustomReminderVarsList"
+            android:label="@string/reminders_title"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+
+        <!-- Receivers and Services-->
+
+        <receiver android:name="com.moodimodo.receivers.MoodTimeReceiver"/>
+
+        <receiver
+            android:name="com.moodimodo.receivers.MoodResultReceiver"
+            android:permission="com.moodimodo.SET_MOOD">
+        </receiver>
+
+        <receiver android:name="com.moodimodo.receivers.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".sdk.QMSpiceService" android:exported="false"/>
+        <service android:name=".sync.SyncService" android:exported="false"/>
+        <service android:name=".sync.MigrationService" android:exported="false"/>
+
+        <!-- Reminders receivers and service -->
+        <receiver android:name=".receivers.RemindersReceiver" />
+        <service android:name=".receivers.RemindersService" />
+
+        <!-- Qtools settings -->
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name="com.quantimodo.tools.activities.TourActivity"
+            android:label="@string/title_history"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name="com.quantimodo.tools.activities.QuantimodoWebAuthenticatorActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+        />
+        <activity android:name="com.quantimodo.tools.activities.QuantimodoLoginActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_sign_in"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name="com.quantimodo.tools.activities.QuantimodoWebValidatorActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName="com.quantimodo.tools.activities.QuantimodoLoginActivity"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.quantimodo.tools.activities.QuantimodoLoginActivity" />
+        </activity>
+
+        <receiver android:name="com.quantimodo.tools.receivers.SyncStopReceiver"/>
+        <receiver android:name="com.quantimodo.tools.sync.SyncReceiver" android:exported="false"/>
+        <receiver android:name="com.quantimodo.tools.receivers.CustomRemindersReceiver" />
+        <service android:name="com.quantimodo.tools.receivers.RemindersService" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="7d0f3286abdbe8fb1a32e5927676a402399e8413" />
+    </application>
+</manifest>

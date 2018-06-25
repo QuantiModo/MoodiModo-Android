@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mind First Mood Tracker</string>
+    <string name="welcome_moodimodo"><![CDATA[Welcome to <font color=\"#48BDD1\">Mind First Mood Tracker</font>!]]></string>
+
+</resources>

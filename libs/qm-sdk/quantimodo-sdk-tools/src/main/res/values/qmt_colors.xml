@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="button_pressed">#CCF15B29</color>
+
+    <color name="actionbar_background">#221e1f</color>
+    <color name="window_background">#EEEEEE</color>
+
+    <color name="tabs_background">#373133</color>
+    <color name="tabs_slider">#F15B29</color>
+    <color name="tabs_text">#E1E0E0</color>
+    <color name="tabs_underline">#4D000000</color>
+
+    <color name="separator">#F2F2F2</color>
+    <color name="separator_card">#E5E5E5</color>
+    <color name="separator_popup">#B0ADA4</color>
+
+    <color name="card_title">#707070</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="card_shadow">#dcdcdc</color>
+    <color name="card_blue_background">#3f8192</color>
+    <color name="card_blue_selected_background">#ff003e4d</color>
+    <color name="card_blue_shadow">#326876</color>
+    <color name="card_button">#4FA1AD</color>
+    <color name="button_color">#48BDD1</color>
+    <color name="card_button_positive">#99CC00</color>
+
+    <color name="text_welcome">#CC000000</color>
+    <color name="text_title">#333333</color>
+    <color name="text_popup">#595853</color>
+    <color name="text_drawer">#fff3f3f3</color>
+    <color name="text_subtitle">#828282</color>
+    <color name="text_card">#797979</color>
+    <color name="text_card_light">#99000000</color>
+    <color name="text_card_spinner">#E6000000</color>
+
+    <color name="notification_background">#181818</color>
+    <color name="notification_separator">#383838</color>
+
+    <color name="tour_circle_selected">#888</color>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="empty">
+    </string-array>
+
+
+
+    <string-array name="moods">
+        <item>@string/mood_depressed</item>
+        <item>@string/mood_sad</item>
+        <item>@string/mood_ok</item>
+        <item>@string/mood_happy</item>
+        <item>@string/mood_ecstatic</item>
+    </string-array>
+
+    <string-array name="mood_interval_entryValues">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="mood_interval_entries">
+        <item>@string/interval_never</item>
+        <item>@string/interval_hourly</item>
+        <item>@string/interval_everythreehours</item>
+        <item>@string/interval_twicedaily</item>
+        <item>@string/interval_daily</item>
+    </string-array>
+
+    <string-array name="rating_notifications_entryValues">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="rating_notifications_entries">
+        <item>@string/pref_rating_notifications_statusbar</item>
+        <item>@string/pref_rating_notifications_popup</item>
+    </string-array>
+</resources>

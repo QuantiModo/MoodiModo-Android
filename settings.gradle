@@ -1,0 +1,13 @@
+include ':app', ':greenGenerator'
+include 'qtools'
+include 'swagger'
+include 'libs'
+include 'sdk'
+include 'testing-utils'
+
+project(':qtools').projectDir = new File(settingsDir, 'libs/qm-sdk/quantimodo-sdk-tools')
+project(':libs').projectDir = new File(settingsDir, 'libs/qm-sdk/libs')
+project(':sdk').projectDir = new File(settingsDir, 'libs/qm-sdk/sdk')
+project(':swagger').projectDir = new File(settingsDir, 'libs/qm-sdk/swagger-android-client')
+project(':testing-utils').projectDir = new File(settingsDir, 'libs/qm-sdk/testing-utils')
+project(':greenGenerator').projectDir = new File('libs/qm-sdk/greenGenerator')

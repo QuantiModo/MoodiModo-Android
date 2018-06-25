@@ -1,0 +1,212 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://oss.sonatype.org/content/repositories/releases/'}
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+
+        // the latest version of the android-apt plugin, to process anotations
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+apply plugin: 'com.neenbedankt.android-apt'
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:support-v13:22.2.0'
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile project(":qtools")
+
+//    compile('ch.acra:acra:4.5.0') {
+//        exclude group: 'org.json'
+//    }
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.2@aar') {
+        transitive = true;
+    }
+
+    //RoboSpice  https://github.com/stephanenicolas/robospice
+    compile 'com.octo.android.robospice:robospice:1.4.14'
+    compile 'com.google.code.gson:gson:2.3'
+
+
+    //EventBus from greenrobot https://github.com/greenrobot/EventBus
+    compile 'de.greenrobot:eventbus:2.4.0'
+
+    //Dagger DI http://square.github.io/dagger/
+    compile 'com.squareup.dagger:dagger:1.2.2'
+    apt 'com.squareup.dagger:dagger-compiler:1.2.2'
+
+    //ButterKnife ViewInjection http://jakewharton.github.io/butterknife/
+    compile 'com.jakewharton:butterknife:6.1.0'
+
+    //UserVoice sdk https://github.com/uservoice/uservoice-android-sdk
+    compile 'com.uservoice:uservoice-android-sdk:+'
+
+    compile 'com.android.support:support-annotations:23.0.1'
+
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'
+
+    compile project(":swagger")
+
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "24.0.0"
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    def flavorId = ""
+
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            output.outputFile = new File(
+                    output.outputFile.parent,
+                    "mm-" + output.outputFile.name.replace(".apk", "-${variant.versionName}.apk"))
+        }
+    }
+
+    signingConfigs {
+        release {
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.moodimodo"
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 213
+        versionName "2.1.3"
+
+    }
+
+    productFlavors {
+        mindFirst {
+            applicationId = "com.moodimodo.mindfirst"
+
+            resValue "bool", "show_shopping_card", "false"
+            buildConfigField 'String', 'OUTCOME_VARIABLE', '"Overall Mood"'
+            buildConfigField 'String', 'OUTCOME_CATEGORY', '"Emotions"'
+            buildConfigField 'String', 'APPLICATION_SOURCE', '"MindFirst"'
+
+            def qmPropertiesFile = file('mindfirst.properties')
+            if (qmPropertiesFile.exists()) {
+                def Properties props = new Properties()
+                props.load(new FileInputStream(qmPropertiesFile))
+                resValue "string", "quantimodo_client", props['quantimodoClient']
+                resValue "string", "quantimodo_secret", props['quantimodoSecret']
+                buildConfigField 'String', 'API_HOST', '"'+props['quantimodoApiUrl']+'"'
+                buildConfigField 'String', 'AUTH_SOCIAL_URL', '"'+props['quantimodoApiAuthUrl']+'"'
+            } else {
+                logger.warn("Couldn't find quantimodo.properties, trying to get from env properties, communication with QuantiModo may not work")
+                resValue "string", "quantimodo_client", System.getenv("quantimodoClient") == null ? "NONE" : System.getenv("quantimodoClient")
+                resValue "string", "quantimodo_secret", System.getenv("quantimodoSecret") == null ? "NONE" : System.getenv("quantimodoSecret")
+                buildConfigField 'String', 'API_HOST' , System.getenv("quantimodoApiUrl") == null ? 'null' : System.getenv("quantimodoApiUrl")
+            }
+        }
+
+        moodiModo {
+            applicationId = "com.moodimodo"
+            buildConfigField 'String', 'OUTCOME_VARIABLE', '"Overall Mood"'
+            buildConfigField 'String', 'OUTCOME_CATEGORY', '"Emotions"'
+            buildConfigField 'String', 'APPLICATION_SOURCE', '"MoodiModo"'
+
+            def qmPropertiesFile = file('quantimodo.properties')
+            if (qmPropertiesFile.exists()) {
+                def Properties props = new Properties()
+                props.load(new FileInputStream(qmPropertiesFile))
+                resValue "string", "quantimodo_client", props['quantimodoClient']
+                resValue "string", "quantimodo_secret", props['quantimodoSecret']
+                buildConfigField 'String', 'API_HOST', '"'+props['quantimodoApiUrl']+'"'
+                buildConfigField 'String', 'AUTH_SOCIAL_URL', '"'+props['quantimodoApiAuthUrl']+'"'
+            } else {
+                logger.warn("Couldn't find quantimodo.properties, trying to get from env properties, communication with QuantiModo may not work")
+                resValue "string", "quantimodo_client", System.getenv("quantimodoClient") == null ? "NONE" : System.getenv("quantimodoClient")
+                resValue "string", "quantimodo_secret", System.getenv("quantimodoSecret") == null ? "NONE" : System.getenv("quantimodoSecret")
+                buildConfigField 'String', 'API_HOST' , System.getenv("quantimodoApiUrl") == null ? 'null' : System.getenv("quantimodoApiUrl")
+            }
+        }
+
+        energy {
+            applicationId = "com.quantimodo.energytracker"
+            buildConfigField 'String', 'OUTCOME_VARIABLE', '"Overall Mood"'
+            buildConfigField 'String', 'OUTCOME_CATEGORY', '"Emotions"'
+            buildConfigField 'String', 'APPLICATION_SOURCE', '"EnergyModo"'
+
+            def qmPropertiesFile = file('energy.properties')
+            if (qmPropertiesFile.exists()) {
+                def Properties props = new Properties()
+                props.load(new FileInputStream(qmPropertiesFile))
+                resValue "string", "quantimodo_client", props['quantimodoClient']
+                resValue "string", "quantimodo_secret", props['quantimodoSecret']
+                buildConfigField 'String', 'API_HOST', '"'+props['quantimodoApiUrl']+'"'
+                buildConfigField 'String', 'AUTH_SOCIAL_URL', '"'+props['quantimodoApiAuthUrl']+'"'
+            } else {
+                logger.warn("Couldn't find quantimodo.properties, trying to get from env properties, communication with QuantiModo may not work")
+                resValue "string", "quantimodo_client", System.getenv("quantimodoClient") == null ? "NONE" : System.getenv("quantimodoClient")
+                resValue "string", "quantimodo_secret", System.getenv("quantimodoSecret") == null ? "NONE" : System.getenv("quantimodoSecret")
+                buildConfigField 'String', 'API_HOST' , System.getenv("quantimodoApiUrl") == null ? 'null' : System.getenv("quantimodoApiUrl")
+            }
+        }
+
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig android.signingConfigs.release
+            buildConfigField 'String', 'API_HOST', '"https://app.quantimo.do/"'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'LICENSE'
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+}
+
+File propFile = file('signing.properties');
+if (propFile.exists()) {
+    def Properties props = new Properties()
+    props.load(new FileInputStream(propFile))
+
+    if (props.containsKey('STORE_FILE') && props.containsKey('STORE_PASSWORD') &&
+            props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
+        android.signingConfigs.release.storeFile = file(props['STORE_FILE'])
+        android.signingConfigs.release.storePassword = props['STORE_PASSWORD']
+        android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
+        android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
+    } else {
+        android.buildTypes.release.signingConfig = null
+    }
+} else {
+    android.buildTypes.release.signingConfig = null
+}

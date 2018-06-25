@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="measurement_times">
+        <item>At this time</item>
+        <item>@string/tracking_settime</item>
+    </string-array>
+
+    <string-array name="measurement_dates">
+        <item>Yesterday</item>
+        <item>Today</item>
+        <item>Tomorrow</item>
+        <item>@string/tracking_setdate</item>
+    </string-array>
+    <string-array name="mood_interval_entries">
+        <item>@string/interval_never</item>
+        <item>@string/interval_hourly</item>
+        <item>@string/interval_everythreehours</item>
+        <item>@string/interval_twicedaily</item>
+        <item>@string/interval_daily</item>
+    </string-array>
+    <string-array name="reminders_interval_entries">
+        <item>@string/interval_once_day</item>
+        <item>@string/interval_twice_day</item>
+        <item>@string/interval_three_times_day</item>
+        <item>@string/interval_hourly</item>
+        <item>@string/interval_everythreehours</item>
+        <item>@string/interval_every_30_minutes</item>
+        <item>@string/interval_never</item>
+    </string-array>
+</resources>

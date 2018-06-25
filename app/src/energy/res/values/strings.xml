@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">EnergyModo</string>
+    <string name="outcome_variable">Energy</string>
+
+
+    <string name="welcome_moodimodo"><![CDATA[Welcome to <font color=\"#48BDD1\">EnergyModo</font>!]]></string>
+    <string name="welcome_sync_feature_3">Analyze your data to see the top predictors for your Energy</string>
+    <string name="notif_mood_subtitle">Tap to report your energy.</string>
+    <string name="pref_rating_schedule">Ask for a energy rating</string>
+    <string name="pref_rating_required">Additional emotion ratings</string>
+    <string name="pref_quantimodo_syncmoods">Sync moods</string>
+    <string name="pref_quantimodo_syncmoods_disabled">Moods won\'t be synced</string>
+
+    <!--Titles-->
+    <string name="mood_depressed">None</string>
+    <string name="mood_sad">Little</string>
+    <string name="mood_ok">Average</string>
+    <string name="mood_happy">A lot</string>
+    <string name="mood_ecstatic">Very Energetic</string>
+
+
+    <!--Graph-->
+    <string name="share_overtime">Energy over time</string>
+    <string name="share_distribution">Energy distribution</string>
+
+    <!--Main question-->
+    <string name="question_mood">[]How is your {Energy}?</string>
+    <string name="question_description_mood">How are you feeling?</string>
+
+    <!--Dialog hint-->
+    <string name="pref_allow_to_skip_rating_hint">Tap to close energy dialog</string>
+
+    <string name="error_delete_measurement">Error when deleting measurement, please try again later.</string>
+
+    <string name="drawer_item_track_outcome_variable">Energy</string>
+
+    <string name="mood_average"><![CDATA[Your average energy is <b>_MOOD_</b>.]]></string>
+    <string name="mood_question">How are you feeling right now?</string>
+
+</resources>

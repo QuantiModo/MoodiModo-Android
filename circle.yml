@@ -1,0 +1,37 @@
+#apk install timeout
+machine:
+  environment:
+     ADB_INSTALL_TIMEOUT : 20
+
+dependencies:
+  pre:
+    - echo y | android update sdk --no-ui --all --filter "build-tools-22.0.1,platform-tools,tools"
+    - rm -rf .git/modules/*
+    - git submodule deinit .
+    - git submodule sync
+    - git submodule init
+    - git submodule update
+    - cd libs/qm-sdk && git fetch && git checkout origin/develop && cd ../..
+
+test:
+  override:
+    # start the emulator
+    - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
+    - emulator -avd test -no-audio -no-window:
+        background: true
+        parallel: true
+    # wait for it to have booted
+    - circle-android wait-for-boot
+    # run tests  against the emulator.
+    - adb shell input keyevent 82:
+        background: true
+        parallel: true
+    #
+
+    #run tests only on MindFirst flavor
+    - ./gradlew :app:connectedAndroidTestMindFirst -PdisablePreDex
+    # copy the build outputs to artifacts
+    - cp -r app/build/outputs $CIRCLE_ARTIFACTS
+    - cp -r libs/qm-sdk/quantimodo-sdk-tools/build/outputs $CIRCLE_ARTIFACTS
+    # copy the test results to the test results directory.
+    - cp -r app/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS

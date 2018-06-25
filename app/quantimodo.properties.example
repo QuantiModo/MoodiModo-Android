@@ -1,0 +1,4 @@
+quantimodoClient=CLIENT_ID
+quantimodoSecret=CLIENT_SECRET
+quantimodoApiUrl=https://app.quantimo.do/
+quantimodoApiAuthUrl=https://app.quantimo.do/api/v2/auth/social/authorizeToken

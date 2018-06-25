@@ -1,0 +1,124 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.2'
+
+        // the latest version of the android-apt plugin, to process anotations
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+    }
+}
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'https://maven.google.com'}
+}
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 230
+        versionName "2.3.0"
+
+        multiDexEnabled true
+
+        def qmPropertiesFile = file('quantimodo.properties')
+        if (qmPropertiesFile.exists()) {
+            def Properties props = new Properties()
+            props.load(new FileInputStream(file('quantimodo.properties')))
+            resValue "string", "quantimodo_client", props['quantimodoClient']
+            resValue "string", "quantimodo_secret", props['quantimodoSecret']
+            buildConfigField 'String', 'API_HOST', '"'+props['quantimodoApiUrl']+'"'
+        } else {
+            logger.warn("Couldn't find quantimodo.properties, trying to get from env properties, communication with QuantiModo may not work")
+            resValue "string", "quantimodo_client", System.getenv("quantimodoClient") == null ? "NONE" : System.getenv("quantimodoClient")
+            resValue "string", "quantimodo_secret", System.getenv("quantimodoSecret") == null ? "NONE" : System.getenv("quantimodoSecret")
+            buildConfigField 'String', 'API_HOST' , System.getenv("quantimodoApiUrl") == null ? 'null' : '"'+System.getenv("quantimodoApiUrl")+'"'
+        }
+        resValue "bool", "show_shopping_card", "true"
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'LICENSE'
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/DEPENDENCIES'
+    }
+}
+
+dependencies {
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':libs')
+    compile 'com.android.support:appcompat-v7:22.2.0'
+
+    compile project(':sdk')
+    compile project(':swagger')
+
+    //RoboSpice  https://github.com/stephanenicolas/robospice
+    compile 'com.octo.android.robospice:robospice:1.4.14'
+    compile 'com.google.code.gson:gson:2.3'
+
+
+    //EventBus from greenrobot https://github.com/greenrobot/EventBus
+    compile 'de.greenrobot:eventbus:2.4.0'
+
+    //Dagger DI http://square.github.io/dagger/
+    compile 'com.squareup.dagger:dagger:1.2.2'
+    apt 'com.squareup.dagger:dagger-compiler:1.2.2'
+
+
+    //Green Dao
+    compile 'de.greenrobot:greendao:2.1.0'
+
+    compile 'com.android.support:multidex:1.0.0'
+
+    compile 'com.google.android.gms:play-services-identity:8.1.0'
+    compile 'com.google.android.gms:play-services-basement:8.1.0'
+    compile 'com.google.android.gms:play-services-base:8.1.0'
+    compile 'com.facebook.android:facebook-android-sdk:4.0.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+}
+
+android.libraryVariants.all { variant ->
+    task("${variant.name}Javadoc", type: Javadoc, dependsOn: "assembleDebug") {
+        source = variant.javaCompile.source
+
+        title = "QuantiModo API"
+
+        options.links("http://docs.oracle.com/javase/7/docs/api/");
+        options.linksOffline("http://d.android.com/reference","${android.sdkDirectory}/docs/reference");
+
+        // First add all of your dependencies to the classpath, then add the android jars
+        classpath += files(variant.javaCompile.classpath.files)
+        classpath += files(android.getBootClasspath())
+
+        // We're excluding these generated files
+        exclude '**/BuildConfig.java'
+        exclude '**/R.java'
+    }
+}
+
+apply from: '../maven.gradle'

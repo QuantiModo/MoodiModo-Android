@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lnMeasurementsContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card_complete"
+    android:orientation="vertical"
+    android:paddingBottom="12dp"
+    android:paddingLeft="12dp">
+
+    <LinearLayout
+        android:id="@+id/lnMeasurementsButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true">
+        <ImageButton
+            android:id="@+id/btReminder"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector"
+            android:cropToPadding="true"
+            android:padding="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/clock" />
+        <ImageButton
+            android:id="@+id/btTime"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/selector"
+            android:cropToPadding="true"
+            android:padding="12dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_date_range_black_24dp"/>
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/tvMeasurementsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:paddingRight="12dp"
+        android:paddingTop="8dp"
+        android:text="@string/tracking_measurement"
+        android:textColor="@color/card_title"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/lnValueContainer"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@id/tvMeasurementsTitle"
+        android:paddingRight="12dp">
+
+        <EditText
+            android:id="@+id/etMeasurementValue"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:hint="@string/tracking_value"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:textColorHint="#CCCCCC"
+            android:selectAllOnFocus="true"/>
+
+
+        <Spinner
+            android:id="@+id/spMeasurementUnit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etNote"
+        android:layout_below="@id/lnValueContainer"
+        android:hint="Note"
+        android:layout_width="match_parent"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_height="52dp"/>
+
+    <TextView
+        android:id="@+id/tvMeasurementsTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etNote"
+        android:fontFamily="sans-serif-light"
+        android:paddingRight="12dp"
+        android:paddingTop="8dp"
+        android:text="@string/tracking_measurement_time"
+        android:textColor="@color/card_title"
+        android:textSize="24sp" />
+
+    <com.quantimodo.tools.views.NDSpinner
+        android:id="@+id/spMeasurementDate"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@id/tvMeasurementsTimeTitle"
+        android:layout_marginRight="12dp"
+        android:inputType="none" />
+
+    <com.quantimodo.tools.views.NDSpinner
+        android:id="@+id/spMeasurementTime"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="52dp"
+        android:layout_below="@id/spMeasurementDate"
+        android:layout_marginRight="12dp"
+        android:inputType="none" />
+
+    <!-- Reminders hidden because using dedicated layout,
+    see CustomRemindersActivity and CustomRemindersCreateActivity -->
+    <TextView
+        android:id="@+id/reminder_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/card_title"
+        android:layout_below="@id/spMeasurementTime"
+        android:textSize="24sp"
+        android:text="Remind me to track"
+        android:visibility="gone"/>
+
+    <com.quantimodo.tools.views.NDSpinner
+        android:id="@+id/spReminderTime"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@id/reminder_title"
+        android:layout_marginRight="12dp"
+        android:inputType="none"
+        android:visibility="gone"/>
+</RelativeLayout>

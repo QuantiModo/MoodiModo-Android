@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:amazon=" http://schemas.amazon.com/apk/res/android"
+          package="com.quantimodo.android.sdk">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name="com.quantimodo.tools.testhelpers.TestBaseApplication"
+        >
+
+        <activity android:name="com.quantimodo.tools.testhelpers.TestMainActivity"/>
+        <activity android:name="com.quantimodo.tools.activities.QuantimodoWebAuthenticatorActivity" />
+        <service android:name="com.quantimodo.tools.testhelpers.TestService"/>
+        <service android:name="com.quantimodo.tools.testhelpers.TestSyncService"/>
+
+        <amazon:enable-feature
+            android:name="com.amazon.device.messaging"
+            android:required="true"/>
+
+    </application>
+
+
+</manifest>

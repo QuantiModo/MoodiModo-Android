@@ -1,0 +1,2 @@
+configurations.create("default")
+artifacts.add("default", file('amazon-mobile-associates-1.0.64.0.jar'))

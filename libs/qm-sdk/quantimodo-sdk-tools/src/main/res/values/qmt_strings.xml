@@ -1,0 +1,155 @@
+<resources>
+
+    <!--<string name="quantimodo_client"/>-->
+    <!--<string name="quantimodo_secret"/>-->
+
+    <string name="sdk_unknown_error">Unknown error</string>
+    <string name="oauth_refresh_failed">You need to log in again</string>
+    <string name="please_wait_message">Please wait&#8230;</string>
+
+    <string name="network_connection_error_message">The internet is broken. Please try again.</string>
+
+    <string name="tracking_measurement">Measurement</string>
+    <string name="tracking_measurement_time">Measurement Time</string>
+    <string name="tracking_value">Value</string>
+    <string name="tracking_date">Date (today)</string>
+    <string name="tracking_time">Time (now)</string>
+    <string name="tracking_variable">Variable</string>
+    <string name="tracking_variablename">Variable name</string>
+    <string name="tracking_variable_add">Add new variable</string>
+    <string name="tracking_measurement_add">Add new measurement</string>
+    <string name="tracking_done">Done</string>
+    <string name="tracking_combination_sum">Sum</string>
+    <string name="tracking_combination_average">Average</string>
+    <string name="tracking_settime">Set time&#8230;</string>
+    <string name="tracking_setdate">Set date&#8230;</string>
+    <string name="tracking_create_var_question"><![CDATA[Are you sure you want to create a new variable called <b>%1$s</b> in the <b>%2$s</b> category with the default unit <b>%3$s</b>?]]></string>
+    <string name="action_remove">Remove</string>
+    <string name="action_settings">Settings</string>
+    <string name="header_factors_positive"><![CDATA[Most likely to <b>IMPROVE</b> %s]]></string>
+    <string name="header_factors_negative"><![CDATA[Most likely to <b>DEPRESS</b> %s]]></string>
+    <string name="header_factors_common">Top Predictors of Mood</string>
+    <string name="header_factors_yours">Your Top Predictors of Mood</string>
+    <string name="toast_requesting">Requesting</string>
+    <string name="tracking_fragment_wait_data_load">Wait till data loaded</string>
+    <string name="menu_item_positive_factors">Positive predictors</string>
+    <string name="menu_item_negative_factors">Negative predictors</string>
+    <string name="tab_positive_factors">Positive predictors</string>
+    <string name="tab_negative_factors">Negative predictors</string>
+    <string name="correlation_dialog_title">Causal Plausibility Vote</string>
+    <string formatted="false" name="correlation_dialog_down">Do you DISAGREE that %s could influence %s?</string>
+    <string formatted="false" name="correlation_dialog_up">Do you AGREE that %s could influence %s?</string>
+    <string name="correlation_dialog_button_positive_disagree">Disagree</string>
+    <string name="correlation_dialog_button_positive_agree">Agree</string>
+    <string name="correlation_dialog_button_negative">Cancel</string>
+    <string name="correlation_dialog_dont_show_again">Don\'t show this again</string>
+    <string name="qmt_dialog_sync_cancel_title">Sync Process</string>
+    <string name="qmt_dialog_sync_stop_message">Do you want to stop sync process?</string>
+    <string name="qmt_dialog_sync_negative_button">Cancel</string>
+    <string name="qmt_dialog_sync_positive_button">Stop</string>
+
+    <string name="tracking_item_no_category">What do you want to track?</string>
+
+    <string name="tracking_item_emotions_title">Emotions</string>
+    <string name="tracking_item_emotions_question">What emotion do you want to track?</string>
+
+    <string name="tracking_item_diet_title">Diet</string>
+    <string name="tracking_item_diet_question">What did you eat?</string>
+
+    <string name="tracking_item_treatments_title">Treatments</string>
+    <string name="tracking_item_treatments_question">Enter a treatment</string>
+
+    <string name="tracking_item_symptoms_title">Symptoms</string>
+    <string name="tracking_item_symptoms_question">Enter a symptom</string>
+
+    <string name="tracking_item_mood_title">Mood</string>
+    <string name="tracking_item_mood_question">Enter a mood</string>
+
+    <string name="tracking_item_physical_title">Physical Activity</string>
+    <string name="tracking_item_physical_question">Enter a physical activity</string>
+
+    <string name="tracking_item_sleep_title">Sleep activity</string>
+    <string name="tracking_item_sleep_question">Enter a sleep activity</string>
+
+    <string name="tracking_fragment_no_category_title">Track Anything</string>
+    <string name="tracking_fragment_emotions_title">Track emotions</string>
+    <string name="tracking_fragment_diet_title">Track diet</string>
+    <string name="tracking_fragment_treatments_title">Track treatments</string>
+    <string name="tracking_fragment_symptoms_title">Track symptoms</string>
+    <string name="tracking_fragment_mood_title">Track mood</string>
+
+    <string name="tracking_fragment_unit_title">Select a unit</string>
+    <string name="tracking_fragment_category_title">Select a category</string>
+    <string name="tracking_fragment_combination_op_title">Select a combination operation</string>
+
+    <string name="login_facebook_app_id">225078261031461</string>
+
+    <string name="signin_google_button">Sign in with Google</string>
+    <string name="signin_facebook_button">Sign in with Facebook</string>
+    <string name="signin_moodimodo_button">Sign in with %s</string>
+    <string name="signin_button">Sign in</string>
+    <string name="signin_error">An error occurred while signing in</string>
+    <string name="signin_success">Welcome!</string>
+    <string name="signing_error_google_play">Please install or update Google Play Services or create a ticket at http://help.quantimo.do</string>
+
+    <!--  Walkthrough  -->
+    <string name="btn_skip">SKIP</string>
+    <string name="btn_done">DONE</string>
+
+    <string name="tour_head_01">Import Data</string>
+    <string name="tour_content_01">Import data from all your apps and devices and get actionable insights</string>
+    <string name="tour_head_02">Track Anything</string>
+    <string name="tour_content_02">Log treatments, diet, symptoms, emotions and anything else</string>
+    <string name="tour_head_03">Make Discoveries</string>
+    <string name="tour_content_03">Identify hidden dietary, environmental, or behavioral factors that are most strongly linked to your well-being</string>
+
+    <string name="help_import">Import</string>
+    <string name="help_prediction">Prediction</string>
+
+    <string name="help_content_01">Import your data from apps and devices that you use on a daily basis</string>
+    <string name="help_content_02">Help us improve our algorithm by voting on accurate or incorrect predictions. Make use of the generic predictions while enough data about you is being collectected</string>
+    <string name="help_content_03">You can change past measurements or add notes</string>
+
+    <!-- Reminders intervals -->
+    <string name="interval_never">Never</string>
+    <string name="interval_hourly">Hourly</string>
+    <string name="interval_everythreehours">Every three hours</string>
+    <string name="interval_twicedaily">Twice daily</string>
+    <string name="interval_daily">Daily</string>
+
+    <string name="interval_once_day">Once a day</string>
+    <string name="interval_twice_day">Twice a day</string>
+    <string name="interval_three_times_day">Three times a day</string>
+    <string name="interval_every_30_minutes">Every 30 minutes</string>
+
+    <string name="reminders_notif_button_track">Track it</string>
+    <string name="reminders_notif_button_snooze">Snooze</string>
+    <string name="reminders_notif_button_edit">Edit</string>
+    <string name="reminders_notif_track_subtitle">Drag down to track %1$s %2$s</string>
+    <string name="reminders_snooze_message">I\'ll remind you again in 1 hour</string>
+
+    <!-- Custom Reminders -->
+    <string name="custom_reminders_title">Custom Reminders</string>
+    <string name="custom_reminders_create">Add a Reminder</string>
+    <string name="custom_reminders_edit">Edit your Reminder</string>
+    <string name="custom_reminders_variable">Variable</string>
+    <string name="custom_reminders_variable_placeholder">Enter variable name</string>
+    <string name="custom_reminders_category">Category</string>
+    <string name="custom_reminders_value">Value</string>
+    <string name="custom_reminders_unit">Unit</string>
+    <string name="custom_reminders_frequency">Reminder Frequency</string>
+    <string name="custom_reminders_save">Save</string>
+    <string name="custom_reminders_remove">Delete</string>
+    <string name="custom_reminders_cancel">Cancel</string>
+    <string name="custom_reminders_remove_confirmation">Are you sure you want to delete this reminder?</string>
+    <string name="custom_reminders_remove_message">The Reminder was successfully deleted</string>
+    <string name="custom_reminder_save_message">The Reminder was successfully saved</string>
+    <string name="custom_reminders_error_variable">You must select one Variable</string>
+    <string name="custom_reminders_error_value">You must specify a Value</string>
+    <string name="custom_reminders_error_frequency">You must select a Frequency</string>
+    <string name="custom_reminders_button_info">Create/Edit a reminder</string>
+
+    <!-- Error strings -->
+    <string name="error_no_connection">Please connect to Internet to perform this action.</string>
+    <string name="error_try_again">A problem occurred, please try again later</string>
+</resources>

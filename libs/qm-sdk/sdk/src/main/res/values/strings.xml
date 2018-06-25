@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="qm_sdk_button_signin_text_long">Sign in with QuantiModo</string>
+    <string name="qm_sdk_button_signin_text">Sign in</string>
+    <string name="qm_sdk_button_signout_text">Sign out</string>
+</resources>

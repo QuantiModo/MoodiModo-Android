@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="questions">
+        <item>@string/question_mood</item>
+        <item>@string/question_guilty</item>
+        <item>@string/question_alert</item>
+        <item>@string/question_afraid</item>
+        <item>@string/question_excited</item>
+        <item>@string/question_irritable</item>
+        <item>@string/question_ashamed</item>
+        <item>@string/question_attentive</item>
+        <item>@string/question_hostile</item>
+        <item>@string/question_active</item>
+        <item>@string/question_nervous</item>
+        <item>@string/question_interested</item>
+        <item>@string/question_enthusiastic</item>
+        <item>@string/question_jittery</item>
+        <item>@string/question_strong</item>
+        <item>@string/question_distressed</item>
+        <item>@string/question_determined</item>
+        <item>@string/question_upset</item>
+        <item>@string/question_proud</item>
+        <item>@string/question_scared</item>
+        <item>@string/question_inspired</item>
+    </string-array>
+
+    <string-array name="questions_description">
+        <item>@string/question_description_mood</item>
+        <item>@string/question_description_guilty</item>
+        <item>@string/question_description_alert</item>
+        <item>@string/question_description_afraid</item>
+        <item>@string/question_description_excited</item>
+        <item>@string/question_description_irritable</item>
+        <item>@string/question_description_ashamed</item>
+        <item>@string/question_description_attentive</item>
+        <item>@string/question_description_hostile</item>
+        <item>@string/question_description_active</item>
+        <item>@string/question_description_nervous</item>
+        <item>@string/question_description_interested</item>
+        <item>@string/question_description_enthusiastic</item>
+        <item>@string/question_description_jittery</item>
+        <item>@string/question_description_strong</item>
+        <item>@string/question_description_distressed</item>
+        <item>@string/question_description_determined</item>
+        <item>@string/question_description_upset</item>
+        <item>@string/question_description_proud</item>
+        <item>@string/question_description_scared</item>
+        <item>@string/question_description_inspired</item>
+    </string-array>
+
+    <string-array name="questions_variables">
+        <item>Overall Mood</item>
+        <item>Guiltiness</item>
+        <item>Alertness</item>
+        <item>Fear</item>
+        <item>Excitability</item>
+        <item>Irritability</item>
+        <item>Shame</item>
+        <item>Attentiveness</item>
+        <item>Hostility</item>
+        <item>Activeness</item>
+        <item>Nervousness</item>
+        <item>Interest</item>
+        <item>Enthusiasm</item>
+        <item>Jitteriness</item>
+        <item>Resilience</item>
+        <item>Distress</item>
+        <item>Determination</item>
+        <item>Upsettedness</item>
+        <item>Pride</item>
+        <item>Scaredness</item>
+        <item>Inspiration</item>
+    </string-array>
+
+</resources>

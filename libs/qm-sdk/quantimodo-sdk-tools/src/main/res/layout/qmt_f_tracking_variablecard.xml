@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lnAddVariableContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="12dp"
+    android:paddingLeft="12dp"
+    android:paddingStart="12dp"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/card_complete"
+    android:visibility="gone"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/card_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:text="@string/tracking_variable"
+        android:textSize="24sp"
+        android:textColor="@color/card_title"
+        android:fontFamily="sans-serif-light"/>
+
+    <EditText
+        android:id="@+id/etVariableNameNew"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/tracking_variablename"
+        android:textColorHint="#CCCCCC"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords"
+        android:layout_marginRight="12dp"
+        />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textSize="17sp"
+        android:text="@string/tracking_fragment_category_title"/>
+    <Spinner
+        android:id="@+id/spVariableCategory"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:textColorHint="#CCCCCC"
+        android:inputType="none"
+        android:layout_marginRight="12dp"
+        />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <Spinner
+        android:id="@+id/spVariableUnit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:textColorHint="#CCCCCC"
+        android:inputType="none"
+        android:layout_marginRight="12dp"
+        android:visibility="gone"
+        />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:textSize="17sp"
+        android:text="@string/tracking_fragment_combination_op_title"/>
+    <RadioGroup
+        android:id="@+id/rgVariableCombinationOperation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="12dp"
+        >
+
+        <RadioButton
+            android:id="@+id/rbVariableCombinationOperationSum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tracking_combination_sum"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/rbVariableCombinationOperationAverage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tracking_combination_average"/>
+    </RadioGroup>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="When combining multiple measurements should we use the MEAN (average) as we would with your weight or should we SUM them as we would with the number of apples you eat per day?"/>
+</LinearLayout>

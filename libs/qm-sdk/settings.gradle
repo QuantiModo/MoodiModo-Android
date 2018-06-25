@@ -1,0 +1,3 @@
+include ':sdk', ':quantimodo-sdk-tools', ':libs', ':testing-utils', ':greenGenerator', ':swagger-android-client', ':swagger'
+
+project(':swagger').projectDir = new File(settingsDir, 'swagger-android-client')

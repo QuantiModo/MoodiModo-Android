@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="drawer_item_tracking">Track Energy</string>
+    <string name="fragment_variable_line_graph_title">Energy over time</string>
+    <string name="bargraph_title">Energy distribution</string>
+</resources>
